@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en"xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>CKEditor 5 – Document editor</title>
+    <script src="https://cdn.ckeditor.com/4.15.1/standard/ckeditor.js"></script>
+</head>
+<body>
+<textarea name="editor1"></textarea>
+
+<script>
+    CKEDITOR.replace('editor1');
+</script>
+
+
+<h1>Classic editor</h1>
+<div id="editor">
+    <p>This is some sample content.</p>
+</div>
+
+<p th:object="posts"></p>
+
+<script>
+    ClassicEditor
+        .create(document.querySelector('#editor'))
+        .catch(error => {
+            console.error(error);
+        });
+</script>
+</body>
+</html>
