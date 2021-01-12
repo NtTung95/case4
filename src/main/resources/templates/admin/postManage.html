@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+<div th:replace="~{fragment/top :: header}"></div>
+<div class="container">
+<table class="table table-striped">
+    <thead class="thead-light">
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Image</th>
+        <th scope="col">Title</th>
+        <th scope="col">UserID</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <th scope="row">1</th>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+    </tr>
+    <tr>
+        <th scope="row">2</th>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>@fat</td>
+    </tr>
+    <tr th:each="post : ${posts}">
+        <th scope="row" th:text="${post.id}"></th>
+        <td><img th:src="${post.image}"></td>
+        <td th:text="${post.title}" ></td>
+        <td th:text="${post.user.username}"></td>
+    </tr>
+
+
+
+    </tbody>
+</table>
+</div>
+<div th:replace="~{fragment/bot :: bottom}"></div>
+</body>
+</html>
